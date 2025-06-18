@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  addUsuario: async function (usuario) {
+  createUsuario: async function (usuario) {
     try {
       const database = db.getDb();
       const result = await database.collection("usuarios").insertOne(usuario);

@@ -15,7 +15,7 @@ async function main() {
 
     // Crear usuarios
     console.log("  <--- GESTION DE USUARIOS -->");
-
+    console.log(" ");
     const usuario1 = await usuarioService.createUsuario({
       nombre: "Ana",
       email: "ana@email.com",
@@ -30,15 +30,22 @@ async function main() {
 
     // Obtener todos los usuarios
     const allUsuarios = await usuarioService.getAllUsuarios();
+    console.log(" ");
     console.log("<--------------------------------------------------------->");
+    console.log(" ");
     console.log("Cantidad de Usuarios registrados:", allUsuarios.length);
+    console.log(" ");
     console.log("<--------------------------------------------------------->");
+    console.log(" ");
     console.log("Usuarios encontrados en la base de datos:");
-    console.dir(allUsuarios);
+    console.log(JSON.stringify(allUsuarios, null, 2));
+    console.log(" ");
     console.log("<--------------------------------------------------------->");
+    console.log(" ");
 
     // Crear proyectos
     console.log("  <--- GESTION DE PROYECTOS -->");
+    console.log(" ");
 
     const proyecto = await proyectoService.createProyecto({
       nombre: "Desarrollo un stock de inventario",
@@ -48,8 +55,24 @@ async function main() {
       fechaCreacion: new Date(),
     });
 
+    // Obtener todos los proyectos
+    const allProyectos = await proyectoService.getAllProyectos();
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
+    console.log("Cantidad de proyectos registrados:", allProyectos.length);
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
+    console.log("Proyectos encontrados en la base de datos:");
+    console.log(JSON.stringify(allProyectos, null, 2));
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
+
     // Crear tareas
-    console.log("  <--- GESTION DE TARES -->");
+    console.log("  <--- GESTION DE TAREAS -->");
+    console.log(" ");
 
     await tareaService.createTarea({
       titulo: "Diseñar interfaz de usuario",
@@ -72,6 +95,21 @@ async function main() {
       asignado: usuario2.insertedId,
       prioridad: "media",
     });
+
+    // Obtener todas los tareas
+    const allTareas = await tareaService.getAllTareas();
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
+    console.log("Cantidad de tareas registrados:", allTareas.length);
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
+    console.log("Tareas encontrados en la base de datos:");
+    console.log(JSON.stringify(allTareas, null, 2));
+    console.log(" ");
+    console.log("<--------------------------------------------------------->");
+    console.log(" ");
   } catch (error) {
     console.error("Error en la aplicacion:", error);
   }
